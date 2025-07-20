@@ -2,7 +2,7 @@ mod sales;
 use sales::*;
 
 fn main() {
-    // -------- Stage 1 --------
+    
     let mut vec_leads = Vec::new();
 
     add_to_vec(&mut vec_leads, Lead {
@@ -14,7 +14,7 @@ fn main() {
     println!("--- Stage 1: Viewing from Vec ---");
     view_from_vec(&vec_leads);
 
-    // -------- Stage 2 & 3 --------
+  
     let mut map_leads = std::collections::HashMap::new();
 
     add_lead(&mut map_leads, 1, Lead {
@@ -26,12 +26,11 @@ fn main() {
     println!("--- Stage 2: View Leads from HashMap ---");
     view_leads(&map_leads);
 
-    // -------- Stage 3: Edit & Cancel --------
+ 
     if let Some(previous_lead) = edit_lead(&mut map_leads, 1, "Bobby".to_string()) {
         println!("--- After Edit ---");
         view_leads(&map_leads);
 
-        // Cancel the edit
         cancel_edit(&mut map_leads, 1, previous_lead);
 
         println!("--- After Cancel Edit ---");
